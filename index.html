@@ -412,6 +412,29 @@
         <p>&copy; 2026 Nicolás Walker Tattoo. Santiago, Chile.</p>
         <p>Sígueme en <a href="https://www.instagram.com/thewalkerkit/" target="_blank">Instagram</a></p>
     </footer>
+    <script>
+    document.getElementById('tattoo-form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Evita que la página se recargue
+
+        // Tu número de WhatsApp con código de país (Ejemplo para Chile: 56912345678)
+        const telefono = "56922101225"; 
+
+        // Capturar los valores del formulario
+        const nombre = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const idea = document.getElementById('idea').value;
+
+        // Crear el mensaje formateado
+        const mensaje = `*Nueva Consulta de Tatuaje*%0A%0A` +
+                        `*Nombre:* ${encodeURIComponent(nombre)}%0A` +
+                        `*Email:* ${encodeURIComponent(email)}%0A` +
+                        `*Idea / Detalle:* ${encodeURIComponent(idea)}`;
+
+        // Abrir WhatsApp
+        const url = `https://wa.me/${telefono}?text=${mensaje}`;
+        window.open(url, '_blank');
+    });
+</script>
 
 </body>
 </html>
